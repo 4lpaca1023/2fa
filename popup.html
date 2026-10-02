@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TOTP Autofill</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <section class="toolbar">
+        <select id="accountSelect" aria-label="Account"></select>
+        <button id="refreshButton" type="button" title="Refresh code">Refresh</button>
+      </section>
+
+      <section class="code-panel" aria-live="polite">
+        <div id="codeText" class="code">------</div>
+        <div id="metaText" class="meta">No account imported</div>
+      </section>
+
+      <section class="actions">
+        <button id="copyButton" type="button">Copy</button>
+        <button id="fillButton" type="button">Fill current tab</button>
+      </section>
+
+      <details id="importPanel">
+        <summary>Import accounts</summary>
+        <textarea id="importText" rows="7" spellcheck="false" placeholder="Paste otpauth:// or otpauth-migration:// URI"></textarea>
+        <button id="importButton" type="button">Import</button>
+      </details>
+
+      <p id="statusText" class="status" role="status"></p>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
